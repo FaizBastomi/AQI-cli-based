@@ -23,19 +23,37 @@ func main() {
 	}
 
 	interactive.ClearConsole()
-	for opsi != 5 {
-		fmt.Println("Select Menu:\n1. Tambah Data\n2. Edit Data\n3. Hapus Data\n4. Tampilkan Data\n5. Exit")
+	for opsi != 8 {
+		fmt.Println("Select Menu:")
+		fmt.Println("1. Tambah Data")
+		fmt.Println("2. Edit Data")
+		fmt.Println("3. Hapus Data")
+		fmt.Println("4. Tampilkan Data")
+		fmt.Println("5. Daftar Polusi Tertinggi")
+		fmt.Println("6. Daftar Polusi Terendah")
+		fmt.Println("7. Cari Data")
+		fmt.Println("8. Exit")
 		fmt.Print("Masukan opsi: ")
 		fmt.Scanln(&opsi)
+
 		switch opsi {
 		case 1:
 			interactive.TambahData(&data)
 		case 2:
-			interactive.UbahDataMenu(&data)
+			interactive.UbahData(&data)
 		case 3:
+			interactive.HapusData(&data)
 		case 4:
 			interactive.ShowData(&data)
+		case 5:
+			interactive.UrutPolusiTertinggi(&data)
+		case 6:
+			interactive.UrutPolusiTerendah(&data)
+		case 7:
+			interactive.CariData(&data)
 		}
+
+		interactive.ClearConsole()
 	}
 
 	// Write data to JSON file
